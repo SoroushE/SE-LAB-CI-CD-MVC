@@ -7,4 +7,4 @@ script:
     - sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no MVC.jar 94109368@198.144.184.34:/home/94109368/
     - sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no static/index.html 94109368@198.144.184.34:/home/94109368/static/
     - sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 killall -u 94109368 java
-    - sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 'nohup java -jar /home/94109368/server.jar &'
+    - sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 'nohup java -jar /home/94109368/MVC.jar &'
