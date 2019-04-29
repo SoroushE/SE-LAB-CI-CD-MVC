@@ -4,8 +4,8 @@ script:
     - ant test
 
 after success: |
-	- sudo apt-get install sshpass
-	- sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no MVC.jar 94109368@198.144.184.34:/home/94109368/
-	- sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no static/index.html 94109368@198.144.184.34:/home/94109368/static/
-	- sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 pkill java
-	- sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 nohup java -jar /home/94109368/server.jar &
+    - sudo apt-get install sshpass
+    - sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no MVC.jar 94109368@198.144.184.34:/home/94109368/
+    - sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no static/index.html 94109368@198.144.184.34:/home/94109368/static/
+    - sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 pkill java
+    - sshpass -p "soroushebadian@gmail.com" ssh 94109368@198.144.184.34 nohup java -jar /home/94109368/server.jar &
