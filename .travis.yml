@@ -2,6 +2,7 @@ language: java
 script:
     - ant compile
     - ant test
+    - ant make
     - sudo apt-get install sshpass
     - sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no MVC.jar 94109368@198.144.184.34:/home/94109368/
     - sshpass -p "soroushebadian@gmail.com" scp -o StrictHostKeyChecking=no static/index.html 94109368@198.144.184.34:/home/94109368/static/
