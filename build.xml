@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<project name="Hello World Project">
+    <property name="src" location="src"/>
+    <property name="build" location="out"/>
+
+    <property name="class.dir"      value="bin"/>
+    <property name="jar.dir"        value="dist"/>
+    <property name="jar.file"        value="${jar.dir}/${ant.project.name}.jar"/>
+    <property name="test.dir"     value="test"/>
+
+    <path id="project.class.path">
+        <fileset dir="lib/">
+        <include name="**/*.jar" />
+    </fileset>
+    </path>
+
+    <path id = "classpath.base"/>
+
+    <path id="test.path">
+
+        <pathelement location = "lib/junit.jar" />
+        <pathelement location = "lib/hamcrest.jar" />
+        <pathelement location = "${test.dir}" />
+        <pathelement location = "${src}" />
+
+        <pathelement location = "${build}" />
+        <path refid = "classpath.base" />
+    </path>
+
+    <target name="compile">
+        <javac srcdir="${src}" destdir="${build}">
+            <classpath refid="project.class.path">
+            </classpath>
+        </javac>
+        <javac srcdir="test" destdir="${build}">
+            <classpath refid="test.path">
+            </classpath>
+        </javac>
+
+
+
+    </target>
+
+
+
+
+    <target name="make">
+        <jar destfile="MVC.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+
+            <zipgroupfileset dir="lib" excludes="META-INF/*.SF,META-INF/*.DSA,META-INF/*.RSA"/>
+        </jar>
+    </target>
+
+
+    <target name = "test" depends = "compile">
+        <junit>
+            <classpath refid = "test.path" />
+            <formatter type = "brief" usefile = "false" />
+            <test name = "SimpleTest" />
+        </junit>
+    </target>
+
+</project>
